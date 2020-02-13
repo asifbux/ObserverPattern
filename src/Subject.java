@@ -9,6 +9,23 @@ public class Subject {
         observerList = new ArrayList <Observer>();
     }
 
+    public void registerObserver(Observer o) {
+        observerList.add(o);
+        o.setTheSubject(this);
+    }
+
+    public void removeObserver(Observer o) {
+        observerList.remove(o);
+
+    }
+
+    public void notifyAllObserver() {
+        for(Observer o: observerList) {
+            o.update();
+        }
+
+    }
+
     public ArrayList<Observer> getObserverList() {
         return observerList;
     }
